@@ -1,0 +1,23 @@
+{
+  "files": {
+    "main.css": "/osm-query-download/static/css/main.f29ae65a.chunk.css",
+    "main.js": "/osm-query-download/static/js/main.861b51c2.chunk.js",
+    "main.js.map": "/osm-query-download/static/js/main.861b51c2.chunk.js.map",
+    "runtime-main.js": "/osm-query-download/static/js/runtime-main.afc4ccfe.js",
+    "runtime-main.js.map": "/osm-query-download/static/js/runtime-main.afc4ccfe.js.map",
+    "static/css/2.7ebcfb48.chunk.css": "/osm-query-download/static/css/2.7ebcfb48.chunk.css",
+    "static/js/2.c55f5177.chunk.js": "/osm-query-download/static/js/2.c55f5177.chunk.js",
+    "static/js/2.c55f5177.chunk.js.map": "/osm-query-download/static/js/2.c55f5177.chunk.js.map",
+    "index.html": "/osm-query-download/index.html",
+    "static/css/2.7ebcfb48.chunk.css.map": "/osm-query-download/static/css/2.7ebcfb48.chunk.css.map",
+    "static/css/main.f29ae65a.chunk.css.map": "/osm-query-download/static/css/main.f29ae65a.chunk.css.map",
+    "static/js/2.c55f5177.chunk.js.LICENSE.txt": "/osm-query-download/static/js/2.c55f5177.chunk.js.LICENSE.txt"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.afc4ccfe.js",
+    "static/css/2.7ebcfb48.chunk.css",
+    "static/js/2.c55f5177.chunk.js",
+    "static/css/main.f29ae65a.chunk.css",
+    "static/js/main.861b51c2.chunk.js"
+  ]
+}
