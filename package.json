@@ -6,6 +6,7 @@
   "dependencies": {
     "@emotion/react": "^11.9.0",
     "@emotion/styled": "^11.8.1",
+    "@mui/icons-material": "^5.8.2",
     "@mui/material": "^5.8.2",
     "@turf/bbox": "6.4.0",
     "cra-template": "1.1.2",
@@ -15,7 +16,9 @@
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
     "react-scripts": "4.0.3",
-    "react-select": "^5.3.2"
+    "react-select": "^5.3.2",
+    "sass": "^1.52.2",
+    "shpjs": "^4.0.2"
   },
   "scripts": {
     "predeploy": "npm run build",
