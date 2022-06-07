@@ -1,3 +1,5 @@
+@import "sidepanel";
+
 * {
   margin: 0;
   padding: 0;
@@ -9,13 +11,23 @@
   text-align: center;
 }
 
+.App-logo {
+  cursor: pointer;
+}
+
 .top-bar {
-  padding: 25px 0px;
+  padding: 10px 0px;
   text-align: center;
-  height: 10vh;
+  height: 8vh;
 }
 
 .map {
   width: 100%;
-  height: 90vh;
+  height: 92vh;
+}
+
+.css-mhc70k-MuiGrid-root {
+  margin-top: 0px!important;
+  margin-left: 0px!important;
+  width: 100%!important;
 }

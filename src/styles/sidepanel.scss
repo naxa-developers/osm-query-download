@@ -1,0 +1,16 @@
+.sidepanel {
+    position: absolute;
+    top: 8vh;
+    left: 50vw;
+    width: 100%;
+    height: 100%;
+    background-color: rgb(212, 6, 6);
+    z-index: 20000;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    transition: all 0.3s ease-in-out;
+    transform: translateX(-100%);
+    opacity: 0;
+}

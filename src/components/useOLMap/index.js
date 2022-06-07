@@ -29,7 +29,7 @@ const useOLMap = ({ scaleBar = false }) => {
       overlays: [],
       view: new View({
         center: [9508595.54043558, 3212952.3094566735 ], //V
-        zoom: 7, //14
+        zoom: 14, //14
       }),
       target: mapRef.current,
     };
