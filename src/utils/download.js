@@ -28,31 +28,31 @@ export const downloadFeature = map => {
         });
         var json = new GeoJSON().writeFeatures(downloadGeometry.getSource().getFeatures(), {dataProjection: 'EPSG:3857', featureProjection: 'EPSG:4326'});
         console.log(json)
-        // shpwrite.download({
-        //     type: 'FeatureCollection',
-        //     features: [
-        //         {
-        //             type: 'Feature',
-        //             geometry: {
-        //                 type: 'Point',
-        //                 coordinates: [0, 0]
-        //             },
-        //             properties: {
-        //                 name: 'Foo'
-        //             }
-        //         },
-        //         {
-        //             type: 'Feature',
-        //             geometry: {
-        //                 type: 'Point',
-        //                 coordinates: [0, 10]
-        //             },
-        //             properties: {
-        //                 name: 'Bar'
-        //             }
-        //         }
-        //     ]
-        // }, options);
+        shpwrite.download({
+            type: 'FeatureCollection',
+            features: [
+                {
+                    type: 'Feature',
+                    geometry: {
+                        type: 'Point',
+                        coordinates: [0, 0]
+                    },
+                    properties: {
+                        name: 'Foo'
+                    }
+                },
+                {
+                    type: 'Feature',
+                    geometry: {
+                        type: 'Point',
+                        coordinates: [0, 10]
+                    },
+                    properties: {
+                        name: 'Bar'
+                    }
+                }
+            ]
+        }, options);
         // var blob = new Blob([json], { type: 'application/json' });
         // var url = URL.createObjectURL(blob);
         // var a = document.createElement('a');

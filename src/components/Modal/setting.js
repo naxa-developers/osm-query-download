@@ -19,6 +19,10 @@ const SettingModal = ({ open, handleClose }) => {
         p: 4,
     };
 
+    const handlePointColor = e => {
+        localStorage.setItem('pointColor', e.target.value);
+    };
+
     const handleLineColor = e => {
         localStorage.setItem('lineColor', e.target.value);
     };
@@ -42,7 +46,7 @@ const SettingModal = ({ open, handleClose }) => {
                     <AccordionDetails>
                         <Typography>
                             <label htmlFor="point-settings">Point Color</label>
-                            <input name='point-settings' type="color" />
+                            <input name='line-settings' type="color" onChange={e => handlePointColor(e)} defaultValue={localStorage.getItem('pointColor') || '#ff0000'}/>
                             <label htmlFor="point-settings">Point Size</label>
                             <input name='point-settings' type="number" />
                         </Typography>
