@@ -45,10 +45,14 @@ const SettingModal = ({ open, handleClose }) => {
                     </AccordionSummary>
                     <AccordionDetails>
                         <Typography>
-                            <label htmlFor="point-settings">Point Color</label>
-                            <input name='line-settings' type="color" onChange={e => handlePointColor(e)} defaultValue={localStorage.getItem('pointColor') || '#ff0000'}/>
+                            <label htmlFor="pointColor">Point Color</label>
+                            <input name='pointColor' type="color" onChange={e => handlePointColor(e)} defaultValue={localStorage.getItem('pointColor') || '#ff0000'} />
+                            <br />
                             <label htmlFor="point-settings">Point Size</label>
-                            <input name='point-settings' type="number" />
+                            <input name='point-settings' type="number"
+                                onChange={e => localStorage.setItem('pointSize', e.target.value)}
+                                defaultValue={localStorage.getItem('pointSize') || 5}
+                            />
                         </Typography>
                     </AccordionDetails>
                 </Accordion>
@@ -61,8 +65,14 @@ const SettingModal = ({ open, handleClose }) => {
                         <Typography>LineString</Typography>
                     </AccordionSummary>
                     <AccordionDetails>
-                        <label htmlFor="line-settings">Line String Color</label>
-                        <input name='line-settings' type="color" onChange={e => handleLineColor(e)} defaultValue={localStorage.getItem('lineColor') || '#00ff00'}/>
+                        <label htmlFor="lineColor">Line String Color</label>
+                        <input name='lineColor' type="color" onChange={e => handleLineColor(e)} defaultValue={localStorage.getItem('lineColor') || '#00ff00'} />
+                        <br />
+                        <label htmlFor="lineWidth">Line String Width</label>
+                        <input name='lineWidth' type="number"
+                            onChange={e => localStorage.setItem('lineWidth', e.target.value)}
+                            defaultValue={localStorage.getItem('lineWidth') || 2}
+                        />
                     </AccordionDetails>
                 </Accordion>
                 <Accordion>
@@ -74,10 +84,23 @@ const SettingModal = ({ open, handleClose }) => {
                         <Typography>Polygon</Typography>
                     </AccordionSummary>
                     <AccordionDetails>
-                        <Typography>
-                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse
-                            malesuada lacus ex, sit amet blandit leo lobortis eget.
-                        </Typography>
+                        <label htmlFor='polygonColor'>Polygon Color</label>
+                        <input name='polygonColor' type="color"
+                            onChange={e => localStorage.setItem('polygonColor', e.target.value)}
+                            defaultValue={localStorage.getItem('polygonColor') || '#0000ff'}
+                        />
+                        <br />
+                        <label htmlFor='polygonWidth'>Polygon Width</label>
+                        <input name='polygonWidth' type="number"
+                            onChange={e => localStorage.setItem('polygonWidth', e.target.value)}
+                            defaultValue={localStorage.getItem('polygonWidth') || 2}
+                        />
+                        <br />
+                        <label htmlFor='polygonDash'>Polygon Dash</label>
+                        <input name='polygonDash' type="number"
+                            onChange={e => localStorage.setItem('polygonDash', e.target.value)}
+                            defaultValue={localStorage.getItem('polygonDash') || 2}
+                        />
                     </AccordionDetails>
                 </Accordion>
             </Box>

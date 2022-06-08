@@ -3,22 +3,22 @@ import { Circle, Fill, Style, Stroke } from 'ol/style';
 export const styles =  {
     'Point': [new Style({
         image: new Circle({
-            fill: new Fill({ color: [255,255,255,1] }),
+            fill: new Fill({ color: localStorage.getItem('pointColor') || 'red' }),
             stroke: new Stroke({ color: [0,0,0,1] }),
-            radius: 5
+            radius: localStorage.getItem('pointSize') || 5
         })
     })],
     'LineString': [new Style({
         stroke: new Stroke({
             color: localStorage.getItem('lineColor') || 'green',
-            width: 1
+            width: localStorage.getItem('lineWidth') || 2
         })
     })],
     'Polygon': [new Style({
         stroke: new Stroke({
-            color: 'blue',
-            lineDash: [4],
-            width: 3
+            color: localStorage.getItem('polygonColor') || 'blue',
+            lineDash: [localStorage.getItem('polygonDash') || 4],
+            width: localStorage.getItem('polygonWidth') || 2
         }),
         fill: new Fill({
             color: 'rgba(0, 0, 255, 0.1)'
