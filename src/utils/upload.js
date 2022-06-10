@@ -18,6 +18,7 @@ export const handleUpload = (map, setExtent) => {
     });
     map.addInteraction(select);
     const visualizer = json => {
+        console.log(json)
         var geojson = new GeoJSON({ featureProjection: get("EPSG:3857") }).readFeatures(json);
         var vector = new VectorLayer({
             source: new VectorSource({

@@ -18,6 +18,7 @@ import { handleUpload } from "../../utils/upload";
 import { OSM } from '../../osm_const';
 import { OSMQuery } from '../../utils/osmquery';
 import CustomizedSnackbars from '../../utils/snackbar';
+import { ExportDialog, SimpleDialog } from '../../utils/dialog';
 import  { drawTool } from '../../utils/draw';
 
 
@@ -30,6 +31,8 @@ const TopBar = ({map, setOpen}) => {
     const [valueOptions, setValueOptions] = useState([]);
     const [snackbarOpen, setSnackbarOpen] = useState(false);
     const [extent, setExtent] = useState(null);
+    const [advanceSetting, setAdvanceSetting] = useState(false);
+    const [exportOpen, setExportOpen] = useState(false);
     const handleOpen = () => setOpen(true);
 
     var keyOptions = []
@@ -53,6 +56,8 @@ const TopBar = ({map, setOpen}) => {
     return (
         <>
         <CustomizedSnackbars open={snackbarOpen} setOpen={setSnackbarOpen} />
+        <SimpleDialog open={advanceSetting} setOpen={setAdvanceSetting} />
+        <ExportDialog open={exportOpen} setOpen={setExportOpen} map={map} osmvalue={osmvalue} />
         <Grid container spacing={2} className="top-bar">
             <Grid item xs={1}>
                 <img src={Logo} className="App-logo" alt="logo" height={40} />
@@ -67,7 +72,7 @@ const TopBar = ({map, setOpen}) => {
                     </Grid>
                     <Grid item xs={1}>
                         <Tooltip title="Advance Options">
-                            <IconButton onClick={handleOpen}>
+                            <IconButton onClick={() => setAdvanceSetting(!advanceSetting)}>
                                 <SettingsIcon />
                             </IconButton>
                         </Tooltip>
@@ -97,7 +102,7 @@ const TopBar = ({map, setOpen}) => {
                     </Button>
                 </Tooltip>
                 <Tooltip title="Download">
-                    <Button variant="fill" startIcon={<CloudDownloadIcon />} onClick={() => downloadFeature(map)}>
+                    <Button variant="fill" startIcon={<CloudDownloadIcon />} onClick={() => setExportOpen(true)}>
                         Download
                     </Button>
                 </Tooltip>

@@ -4,13 +4,13 @@ import { Feature } from 'ol/index';
 import { GeoJSON } from 'ol/format';
 import shpwrite from 'shp-write'
 
-export const downloadFeature = map => {
+export const downloadFeature = (map, osmvalue, format) => {
     var options = {
-        folder: 'myshapes',
+        folder: osmvalue,
         types: {
-            point: 'mypoints',
-            polygon: 'mypolygons',
-            line: 'mylines'
+            point: osmvalue + '_points',
+            polygon: osmvalue + '_polygons',
+            line: osmvalue + '_lines'
         }
     }
     if (map) {
@@ -18,7 +18,7 @@ export const downloadFeature = map => {
         var geom = [];
         layers.forEach((layer, index) => {
             if (index !== 0) {
-                geom.push(new Feature(layer.getSource().getFeatures()))
+                geom.push(new Feature(layer.getSource().getFeatures()[0].getGeometry().transform('EPSG:3857', 'EPSG:4326')))
             }
         });
         var downloadGeometry = new VectorLayer({
@@ -26,38 +26,16 @@ export const downloadFeature = map => {
                 features: geom,
             }),
         });
-        var json = new GeoJSON().writeFeatures(downloadGeometry.getSource().getFeatures(), {dataProjection: 'EPSG:3857', featureProjection: 'EPSG:4326'});
-        console.log(json)
-        shpwrite.download({
-            type: 'FeatureCollection',
-            features: [
-                {
-                    type: 'Feature',
-                    geometry: {
-                        type: 'Point',
-                        coordinates: [0, 0]
-                    },
-                    properties: {
-                        name: 'Foo'
-                    }
-                },
-                {
-                    type: 'Feature',
-                    geometry: {
-                        type: 'Point',
-                        coordinates: [0, 10]
-                    },
-                    properties: {
-                        name: 'Bar'
-                    }
-                }
-            ]
-        }, options);
-        // var blob = new Blob([json], { type: 'application/json' });
-        // var url = URL.createObjectURL(blob);
-        // var a = document.createElement('a');
-        // a.href = url;
-        // a.download = 'download.geojson';
-        // a.click();
+        var json = new GeoJSON().writeFeatures(downloadGeometry.getSource().getFeatures());
+        if (format === 'geojson') {
+            var blob = new Blob([json], { type: 'application/json' });
+            var url = URL.createObjectURL(blob);
+            var a = document.createElement('a');
+            a.href = url;
+            a.download = 'download.geojson';
+            a.click();
+        } else {
+            shpwrite.download(JSON.parse(json), options);
+        }
     }
 }
